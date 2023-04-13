@@ -1,0 +1,20 @@
+{
+  "name": "bpi/blogoop",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Bpi\\Blogoop\\": "src/"
+    },
+    "files": [
+      "./helper.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "behzad",
+      "email": "behzad.kermanii@gmail.com"
+    }
+  ],
+  "require": {}
+}
