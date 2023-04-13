@@ -4,7 +4,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Bpi\\Blogoop\\": "src/"
+      "App\\": "src/"
     },
     "files": [
       "./helper.php"
