@@ -2,11 +2,12 @@
 
 require "./vendor/autoload.php";
 
-use App\Entities\{PostEntity, UserEntity, SettingEntity};
-use App\Classes\Database;
 
-$database = new Database('posts', PostEntity::class);
-dd($database->data);
+use App\Models\{Post, User, Setting};
+
+
+// $database = new Database('posts', PostEntity::class);
+// dd($database->data);
 // $newPost = new PostEntity([
 //     'id' => 11,
 //     'title' => 'test',
@@ -18,3 +19,7 @@ dd($database->data);
 // ]);
 // $database->data[] = $newPost;
 // $database->setData($database->data);
+// $user = new User;
+// dd($user->getAllData());
+$post = new Post();
+dd($post->getLastData());

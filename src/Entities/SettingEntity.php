@@ -4,6 +4,7 @@ namespace App\Entities;
 
 class SettingEntity
 {
+    private $id;
     private $title;
     private $keywords;
     private $description;
@@ -12,6 +13,7 @@ class SettingEntity
 
     public function __construct($array)
     {
+        $this->id = $array['id'];
         $this->title = $array['title'];
         $this->keywords = $array['keywords'];
         $this->description = $array['description'];
@@ -21,12 +23,17 @@ class SettingEntity
     public function toArray()
     {
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'keywords' => $this->keywords,
             'description' => $this->description,
             'author' => $this->author,
             'footer' => $this->footer,
         ];
+    }
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getTitle()

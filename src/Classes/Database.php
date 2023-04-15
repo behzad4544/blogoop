@@ -5,7 +5,7 @@ namespace App\Classes;
 class Database
 {
     private $databaseFileAddress;
-    public $data;
+    private $data;
 
     public function __construct($fileName, $entityClass)
     {
@@ -29,5 +29,9 @@ class Database
         fwrite($file, $newData);
         fclose($file);
         return true;
+    }
+    public function getData()
+    {
+        return $this->data;
     }
 }
