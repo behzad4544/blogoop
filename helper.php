@@ -1,6 +1,6 @@
 <?php
 
-function sayHello()
+function dd($data)
 {
-    echo "Hello";
+    die("<pre>" . print_r($data, true) . "</pre>");
 }

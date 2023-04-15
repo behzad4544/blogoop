@@ -2,14 +2,19 @@
 
 require "./vendor/autoload.php";
 
-use App\Entities\PostEntity;
+use App\Entities\{PostEntity, UserEntity, SettingEntity};
+use App\Classes\Database;
 
-$postEntity = new PostEntity();
-$postEntity->setId(1);
-$postEntity->setTitle("title");
-$postEntity->setContent("content");
-$postEntity->setCategory("sport");
-$postEntity->setView(40);
-$postEntity->setImage("/assets/images/1.jpg");
-$postEntity->setDate(time());
-var_dump($postEntity);
+$database = new Database('posts', PostEntity::class);
+dd($database->data);
+// $newPost = new PostEntity([
+//     'id' => 11,
+//     'title' => 'test',
+//     'content' => 'test content',
+//     'category' => 'sport',
+//     'view' => 1111,
+//     'image' => './image/1.jpg',
+//     'date' => date('Y-m-d H:i:s')
+// ]);
+// $database->data[] = $newPost;
+// $database->setData($database->data);

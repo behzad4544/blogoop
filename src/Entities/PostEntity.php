@@ -11,6 +11,30 @@ class PostEntity
     private $view;
     private $image;
     private $date;
+
+
+    public function __construct($array)
+    {
+        $this->id = $array['id'];
+        $this->title = $array['title'];
+        $this->content = $array['content'];
+        $this->date = $array['date'];
+        $this->category = $array['category'];
+        $this->image = $array['image'];
+        $this->view = $array['view'];
+    }
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'date' => $this->date,
+            'category' => $this->category,
+            'image' => $this->image,
+            'view' => $this->view,
+        ];
+    }
     public function setId($id)
     {
         $this->id = $id;
