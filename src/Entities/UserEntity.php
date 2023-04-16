@@ -61,4 +61,8 @@ class UserEntity
     {
         return $this->date;
     }
+    public function getTimestamp()
+    {
+        return strtotime($this->date);
+    }
 }

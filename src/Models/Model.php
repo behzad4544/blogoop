@@ -28,7 +28,7 @@ abstract class Model
         if (count($array)) {
             return $array[0];
         }
-        throw new DoesNotExistException("Does not exist any {$this->entityClass}");
+        throw new DoesNotExistException("Does not exist any id in {$this->entityClass}");
     }
     public function getLastData()
     {
@@ -45,5 +45,44 @@ abstract class Model
             return $data[0];
         }
         throw new DoesNotExistException("Does not exist any {$this->entityClass}");
+    }
+    public function getFirstData()
+    {
+        $data = $this->database->getData();
+        uasort($data, function ($first, $second) {
+            if ($first->getId() < $second->getId()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
+        $data = array_values($data);
+        if (count($data)) {
+            return $data[0];
+        } else {
+            throw new DoesNotExistException("Does not exist first {$this->entityClass} ");
+        }
+    }
+    public function sortData($callback)
+    {
+        $data = $this->database->getData();
+        uasort($data, $callback);
+        $data = array_values($data);
+        if (count($data)) {
+            return $data;
+        } else {
+            throw new DoesNotExistException("Does not exist first {$this->entityClass} ");
+        }
+    }
+    public function filterData($callback)
+    {
+        $data = $this->database->getData();
+        $data = array_filter($data, $callback);
+        $data = array_values($data);
+        if (count($data)) {
+            return $data;
+        } else {
+            throw new DoesNotExistException("Does not exist first {$this->entityClass} ");
+        }
     }
 }
