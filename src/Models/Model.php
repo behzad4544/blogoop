@@ -85,4 +85,33 @@ abstract class Model
             throw new DoesNotExistException("Does not exist first {$this->entityClass} ");
         }
     }
+    public function creatData($new)
+    {
+        $data = $this->database->getData();
+        $data[] = $new;
+        $this->database->setData($data);
+    }
+    public function deleteData($id)
+    {
+        $data = $this->database->getData();
+        $newData = array_filter($data, function ($item) use ($id) {
+            if ($item->getId() == $id) {
+                return false;
+            } else {
+                return true;
+            }
+        });
+        $newData = array_values($newData);
+        $this->database->setData($newData);
+    }
+    public function editData($new)
+    {
+        $data = $this->database->getData();
+        $newData = array_map(function ($item) use ($new) {
+            return  $item->getId() == $new->getId() ? $new : $item;
+        }, $data);
+        $newData = array_values($newData);
+        $this->database->setData($newData);
+        return true;
+    }
 }

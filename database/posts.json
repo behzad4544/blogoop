@@ -88,14 +88,5 @@
     "category": "political",
     "image": "images/10.jpg",
     "view": 320
-  },
-  {
-    "id": 11,
-    "title": "test",
-    "content": "test content",
-    "date": "2023-04-15 07:35:21",
-    "category": "sport",
-    "image": "./image/1.jpg",
-    "view": 1111
   }
 ]
